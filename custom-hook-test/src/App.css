@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+.App h1{
+  padding: 2em;
+}
+
+.App button{
+  background-color:black;
+  color:white;
+  margin-left:1em;
+  border-radius: 20px;
+  width: 100px;
+  padding:6px;
+}
