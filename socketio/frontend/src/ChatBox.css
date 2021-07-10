@@ -1,0 +1,15 @@
+.ChatBox{
+    margin-top:10px;
+    display: flex;
+}
+.ChatBox textarea{
+    width: 85%;
+
+}
+.ChatBox button{
+    background: black;
+    margin-left:1em;
+    color:white;
+    padding:0.6em;
+    width: 80px;
+}

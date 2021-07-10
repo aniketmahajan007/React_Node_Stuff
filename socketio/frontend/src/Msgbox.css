@@ -1,0 +1,8 @@
+.Msgbox{
+    height: 500px;
+    border:1px solid purple;
+}
+.Msgbox h3{
+    text-align: center;
+    text-decoration: underline;
+}
