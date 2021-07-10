@@ -1,8 +1,16 @@
 .Msgbox{
-    height: 500px;
+    height: 300px;
     border:1px solid purple;
 }
 .Msgbox h3{
     text-align: center;
     text-decoration: underline;
+}
+.Msgbox #Chatmsg{
+    padding:1em;
+    margin-top:-2em;
+}
+.Msgbox #Chatmsg span{
+    margin-bottom: 10px;
+    display: block;
 }

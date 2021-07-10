@@ -1,8 +1,15 @@
 import './ChatBox.css'
+import {useState} from "react";
 
-export default function ChatBox(){
+export default function ChatBox({upload_msg}){
+    const [chatvalue,chatvalue_update] = useState('');
+    const submit_msg_to_app = () => {
+        upload_msg(chatvalue);
+        chatvalue_update('');
+    }
+
     return <div className="ChatBox">
-       <textarea placeholder="Enter msg here ..." id="chatarea" />
-       <button id="sendchat">Send</button>
+       <textarea onChange={(e) => chatvalue_update(e.target.value)} placeholder="Enter msg here ..." id="chatarea" value={chatvalue} />
+       <button onClick={submit_msg_to_app} id="sendchat">Send</button>
     </div>
 }
