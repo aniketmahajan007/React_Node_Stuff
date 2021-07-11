@@ -5,7 +5,7 @@ import socketClient from 'socket.io-client';
 import {useEffect, useState} from "react";
 
 function App() {
-    const [roomid, setRoomid] = useState('');
+    const [Joinroom, setJoinroom] = useState('');
     const [myroomid, setmyRoomid] = useState('');
     //const [msg, setmsg] = useState('');
     const [chat,setChat] = useState([]);
@@ -13,8 +13,16 @@ function App() {
 
     const upload_msg = (textmsg) => {
         console.log('upload-chat Called');
-        socket.emit('upload-chat',textmsg);
+        socket.emit('upload-chat',textmsg, Joinroom);
     }
+
+    const update_joinroom = () => {
+        let a = prompt('Enter Room ID to join');
+        if(a.length> 6){
+            setJoinroom(a);
+        }
+    }
+
     useEffect(()=>{
         socket.on('connect',()=>{
             setmyRoomid(socket.id);
@@ -27,10 +35,10 @@ function App() {
     return (
     <div className="App">
         <h3>Your Room Id: {myroomid}</h3>
-        <h3>Currently join: {roomid}</h3>
+        <h3>Currently join: {Joinroom}</h3>
         <Msgbox chat={chat} />
         <div id="create_join_room_box">
-            <button>Join Room</button>
+            <button onClick={update_joinroom}>Join Room</button>
         </div>
         <ChatBox upload_msg={upload_msg} />
     </div>

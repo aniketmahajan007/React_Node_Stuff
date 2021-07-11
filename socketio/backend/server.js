@@ -5,9 +5,9 @@ const io = require("socket.io")(httpServer, {
 
 io.on("connection", (socket) => {
     console.log(socket.id);
-    socket.on('upload-chat',(payload) => {
-        console.log('Payload: '+payload);
-        socket.broadcast.emit('download-chat',payload)
+    socket.on('upload-chat',(msg, roomid) => {
+        console.log('Payload: '+msg);
+        socket.to(roomid).emit('download-chat',msg)
     });
 
 });
