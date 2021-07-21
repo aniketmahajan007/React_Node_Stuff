@@ -20,6 +20,7 @@ function App() {
         let a = prompt('Enter Room ID to join');
         if(a.length> 6){
             setJoinroom(a);
+            socket.emit('join-room',a);
         }
     }
 
