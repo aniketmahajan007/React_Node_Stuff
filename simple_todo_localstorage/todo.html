@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Todo Simple With Local Storage</title>
+</head>
+<body>
+	<form>
+		<input type="text" id="todoTask" />
+		<button id="todoButton" type="button">Add Todo</button>
+		<ul id="todoItems">
+		</ul>
+	</form>
+	<script>
+		function listItems (){
+			let todoItems = JSON.parse(localStorage.getItem('todo'));
+			document.getElementById("todoItems").innerHTML = '';
+			todoItems.forEach((val)=>{
+				let li = document.createElement("li");
+				li.innerText = val;
+				document.getElementById("todoItems").append(li)
+			});
+		}
+		function addItems(){
+			let todoTask = document.getElementById('todoTask').value.toString();
+			let alreadytodo = localStorage.getItem('todo');
+			if(alreadytodo === null){
+				localStorage.setItem('todo',JSON.stringify([todoTask]));
+			}else{
+				let updatedTodo = JSON.parse(alreadytodo);
+				updatedTodo.push(todoTask);
+				localStorage.setItem('todo',JSON.stringify(updatedTodo));
+			}
+			listItems();
+		}
+		document.getElementById('todoButton').addEventListener('click',addItems);
+		window.onload = function (){
+			listItems();
+		}
+	</script>
+</body>
+</html>
