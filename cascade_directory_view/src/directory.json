@@ -1,0 +1,43 @@
+[{
+  "name": "root",
+  "isFolder": true,
+  "directory": [
+    {
+      "name": "public",
+      "isFolder": true,
+      "directory": [
+        {
+          "name": "index.html",
+          "isFolder": false,
+          "directory": []
+        },
+        {
+          "name": "favicon.ico",
+          "isFolder": false,
+          "directory": []
+        }
+
+      ]
+    },
+    {
+      "name": "src",
+      "isFolder": true,
+      "directory":[
+        {
+          "name": "App.js",
+          "isFolder": false,
+          "directory": []
+        },
+        {
+          "name": "App.css",
+          "isFolder": false,
+          "directory": []
+        }
+      ]
+    },
+    {
+      "name": "rootfile",
+      "isFolder": false
+    }
+  ]
+}]
