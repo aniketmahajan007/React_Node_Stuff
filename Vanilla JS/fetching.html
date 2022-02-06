@@ -1,0 +1,39 @@
+<html lang="eg">
+<head>
+    <Title>Async</Title>
+</head>
+<body>
+<h1>Hello</h1>
+<script>
+    // Async & Await
+    async function fetchData(){
+        try{
+            console.log('Launch');
+            const res = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+            console.log(res);
+            if(!res.ok) throw 'Request Not Valid';
+            console.log('Complete');
+            const data = await res.json();
+            console.log(data);
+        }catch (e){
+            console.log('Error: '+e);
+        }
+    }
+    /*
+    With Promise & Then
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(res => {
+            if(res.ok) { return res.json() }
+            throw 'Request not Valid'
+        })
+        .then(res => {
+            console.log(res);
+        }).catch(e => {
+        console.log(e);
+    });*/
+    fetchData()
+    console.log('Last Line of Script');
+
+</script>
+</body>
+</html>
