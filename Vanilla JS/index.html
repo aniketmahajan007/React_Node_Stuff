@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index HTML</title>
+</head>
+<body>
+    <input type="text" id="todoText" />
+    <button type="button" id="submit">Add</button>
+    <br/>
+    <ul id="allTodoItem">
+
+    </ul>
+    <script>
+        function displayList(){
+            let allTodo = JSON.parse(localStorage.getItem("todo"));
+            if (allTodo === null) return;
+            let ul = document.getElementById("allTodoItem");
+            ul.innerHTML='';
+            console.log(allTodo);
+            allTodo.forEach((val)=>{
+                let li = document.createElement("li");
+                li.innerText = val;
+                ul.append(li);
+            })
+        }
+        function add(){
+            let todoText = document.getElementById("todoText").value;
+            if(localStorage.getItem("todo") === null){
+                localStorage.setItem("todo",JSON.stringify([todoText]));
+            }else{
+                let pastTodo = JSON.parse(localStorage.getItem("todo"));
+                pastTodo.push(todoText)
+                localStorage.setItem("todo",JSON.stringify(pastTodo));
+            }
+            displayList();
+        }
+        document.getElementById("submit").addEventListener('click',add);
+        window.onload = () => {
+            displayList();
+        }
+    </script>
+</body>
+</html>
