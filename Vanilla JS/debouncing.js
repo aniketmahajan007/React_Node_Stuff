@@ -15,3 +15,23 @@ const betterFunction  = debounce(getValue,2000);
 for(let i=0;i<5;i++){
     betterFunction();
 }
+
+/**
+ function getValue(e){
+	console.log(e.value);
+}
+ function debounce(fn,delay){
+	let timer;
+  return function(...args){
+  	if(timer) clearTimeout(timer);
+  	timer = setTimeout(() => {
+    	fn(this);
+    },delay);
+  }
+}
+ const betterGetValue = debounce(getValue,2000);
+ let inputValue = document.getElementById('inputValue');
+ inputValue.addEventListener('keyup',betterGetValue);
+
+
+ */
