@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Event Delegation</title>
+</head>
+<body>
+    <form id="inputForm">
+        <input type='text' placeholder="Only Uppercase" data-uppercase ="true" />
+        <input type='text' placeholder="Only Lowercase" data-lowercase ="true"/>
+        <input type='text' placeholder="Anything"/>
+        <select>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+    </form>
+</body>
+<script>
+    let inputForm = document.getElementById('inputForm');
+    inputForm.addEventListener('keyup',function(e){
+        if(e.target.dataset.uppercase === "true"){
+            e.target.value = e.target.value.toUpperCase();
+        }
+        if(e.target.dataset.lowercase === "true"){
+            e.target.value = e.target.value.toLowerCase();
+        }
+    });
+</script>
+</html>
